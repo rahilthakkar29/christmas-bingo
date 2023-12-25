@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Bingo Night</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 20px;
+        }
+        #bingoImage {
+            width: 500px;
+            height: 400px;
+            margin-top: 20px;
+        }
+        #footer {
+            margin-top: 20px;
+            font-style: italic;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>Christmas Bingo Night</h1>
+    <img id="bingoImage" src="" alt="Bingo Image">
+    <button onclick="showNextImage()">Show Next Image</button>
+    <p id="footer">Merry Christmas!</p>
+
+    <script>
+        // Array to store the image filenames
+        var images = [
+            "images/image1.jpg",
+            "images/image2.jpg",
+            "images/image3.jpg",
+            "images/image4.jpg",
+            "images/image5.jpg",
+            "images/image6.jpg",
+            "images/image7.jpg",
+            "images/image8.jpg",
+            "images/image9.jpg",
+            "images/image10.jpg",
+            "images/image11.jpg",
+            "images/image12.jpg",
+            "images/image13.jpg",
+            "images/image14.jpg",
+            "images/image15.jpg",
+            "images/image16.jpg",
+            "images/image17.jpg",
+            "images/image18.jpg",
+            "images/image19.jpg",
+            "images/image20.jpg",
+            "images/image21.jpg",
+            "images/image22.jpg",
+            "images/image23.jpg",
+            "images/image24.jpg",
+        ];
+
+        // Shuffle the array to randomize the images
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        shuffleArray(images);
+
+        // Counter to keep track of shown images
+        var imageCounter = 0;
+
+        // Function to show the next image
+        function showNextImage() {
+            // Check if all images are shown
+            if (imageCounter === images.length) {
+                alert("All images have been shown!");
+                return;
+            }
+
+            // Get the image element
+            var bingoImage = document.getElementById("bingoImage");
+
+            // Set the image source
+            bingoImage.src = images[imageCounter];
+
+            // Increment the counter
+            imageCounter++;
+        }
+    </script>
+</body>
+</html>
